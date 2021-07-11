@@ -1,0 +1,39 @@
+[package]
+name = "dot"
+description = "The CLI and/or TUI client for the Dot service"
+version = "0.1.0"
+edition = "2018"
+default-run = "dot"
+
+[[bin]]
+name = "dot"
+path = "src/bin/dot.rs"
+
+[lib]
+name = "dot"
+path = "src/lib.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+chrono = { version = "0.4.19", features = ["serde"] }
+crossbeam-channel = "0.5.1"
+crossterm = { version = "0.20.0", features = ["event-stream"] }
+indicatif = "0.16.2"
+notify = { version = "4.0.17" }
+rustyline = "8.2.0"
+serde = { version = "1.0.126", features = ["derive"] }
+termcolor = "1.1.2"
+toml = "0.5.8"
+# ansi_colours
+# console
+# dialoguer
+# prettytable-rs
+# run-script
+
+[features]
+default = [ "cli" ]
+cli = []
+tui = []
+
+# cli feature for if using local cli client -- otherwise, accessed via terminal ssh
